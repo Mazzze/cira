@@ -92,9 +92,9 @@ class Stock:
         return self._can_borrow
 
 
-    def barset(self, limit:int):
+    def barset(self, limit:int, time_step='day'):
         """ returns barset for stock for time period lim """
-        self._barset = alpaca.api().get_barset(self.symbol, "minute", limit=int(limit))[self.symbol]
+        self._barset = alpaca.api().get_barset(self.symbol, time_step, limit=int(limit))[self.symbol]
         return self._barset
 
 
